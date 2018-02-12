@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TAXI CUSTOMER</title>
+  <link rel="stylesheet" href="leaflet/leaflet.css">
+  <link rel="stylesheet" href="/esri-leaflet-geocoder/esri-leaflet-geocoder.css">
+  <link rel="stylesheet" href="css/taxi.css">
+  <script src="/vue/vue.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/leaflet/leaflet.js"></script>
+  <script src="/esri-leaflet/esri-leaflet.js"></script> 
+  <script src="/esri-leaflet-geocoder/esri-leaflet-geocoder.js"></script> 
+  <script src="js/customer.js" defer></script>
+</head>
+<body>
+  <h1 id="taxititle">
+    Välkommen till Lådbil AB 
+  </h1>
+  <p>Select destination first, then your location</p>
+  <div id="page">
+    <div id="my-map"></div>
+	<br>
+		<p>
+			<label for="För- och efternamn">Namn</label><br>
+			<input type="text" id="Namn" name="na" required="required" placeholder="För- och efternamn">
+		</p>
+		<p>
+			<label for="telefonnummer">Telefonnummer</label><br>
+			<input type="text" id="Telefonnummer" name="te" placeholder="Street name">
+		</p>
+		<form>
+			<input type="radio" name="biltyp" value="litenbil" checked> Liten bil (1-4 personer)<br>
+			<input type="radio" name="biltyp" value="storbil"> Stor bil (5-8 personer)<br>
+		</form>
+		<form>
+			<input type="radio" name="behov" value="rullstol"> Rullstol<br>
+			<input type="radio" name="behov" value="barnstol"> Barnstol<br>
+		</form>
+	<br>
+    <button v-on:click="orderTaxi">ORDER TAXI</button>
+    Your order number is {{ orderId }}
+  </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+@import 'https://fonts.googleapis.com/css?family=Pacifico|Dosis';
+@import url("reset.css");
+@import url("https://fonts.googleapis.com/css?family=Droid+Serif|Share+Tech+Mono");
+
+@font-face {                                        
+	font-family: t1;
+	src: url('../fonts/taxititle1.ttf');
+}
+
+@font-face {                                        
+	font-family: t2;
+	src: url('../fonts/taxititle2.ttf');
+}
+
+#taxititle {
+	font-family: t1;
+	font-size 60pt;
+	text-align: center;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#my-map {
+	width: 90%;
+	height: 50vh;
+	border: 1px solid rgba(0,0,0,0.4);
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+	margin: 1em auto;
+}
+
+.popup-list {
+	padding-left: 0;
+}
