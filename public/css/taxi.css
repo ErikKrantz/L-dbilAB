@@ -21,6 +21,11 @@
 body {
 	margin: 0;
 	padding: 0;
+
+}
+
+.kartsektion {
+	text-align: center;
 }
 
 #my-map {
@@ -33,4 +38,25 @@ body {
 
 .popup-list {
 	padding-left: 0;
+}
+
+
+#page {
+	margin: 20px;
+	overflow:hidden;
+	background-color: #F0FFFF;
+	border: 2px ridge #000000;
+}
+
+
+button:hover { 
+    cursor: pointer;
+    background-color: #ADD8E6;
+}
+
+section {
+	margin: 10px;
+	padding: 0 20px; 
+	overflow:hidden;
+	border: 2px ridge #DCDCDC;
 }
