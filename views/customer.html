@@ -18,9 +18,12 @@
   <h1 id="taxititle">
     Välkommen till Lådbil AB 
   </h1>
-  <p>Select destination first, then your location</p>
   <div id="page">
+  <section class="kartsektion">
+  <h3>Välj först din destination, och sedan var du vill bli upphämtad</h3>
     <div id="my-map"></div>
+  </section>
+  <section>
 	<br>
 		<p>
 			<label for="För- och efternamn">Namn</label><br>
@@ -30,17 +33,30 @@
 			<label for="telefonnummer">Telefonnummer</label><br>
 			<input type="text" id="Telefonnummer" name="te" placeholder="Telefonnummer">
 		</p>
+		<br>
 		<form>
 			<input type="radio" name="biltyp" value="litenbil" checked> Liten bil (1-4 personer)<br>
 			<input type="radio" name="biltyp" value="storbil"> Stor bil (5-8 personer)<br>
 		</form>
+		<h6>Jag har ytterliggare behov</h6>
 		<form>
 			<input type="radio" name="behov" value="rullstol"> Rullstol<br>
 			<input type="radio" name="behov" value="barnstol"> Barnstol<br>
 		</form>
 	<br>
-    <button v-on:click="orderTaxi">ORDER TAXI</button>
-    Your order number is {{ orderId }}
+	<label for="betalning">Betalningsalternativ</label><br>
+		<select id="betalning" name="bet">
+			<option>Kredit kort</option>
+			<option>Kontant</option>
+			<option>Swish</option>
+		</select>
+	<br>
+	<br>
+    <button v-on:click="orderTaxi">BOKA TAXI <img src="https://www.iconexperience.com/_img/o_collection_png/green_dark_grey/256x256/plain/car_convertible2.png" width="20" height="20"></button>
+    Ditt bokningsnummer är {{ orderId }}
+	<br>
+	<br>
+	</section>
   </div>
 </body>
 </html>
