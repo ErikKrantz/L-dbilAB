@@ -24,6 +24,8 @@
     <div id="my-map"></div>
   </section>
   <section>
+  <div class="wrapper">
+    <div id="custominfo">
 	<br>
 		<p>
 			<label for="För- och efternamn">Namn</label><br>
@@ -35,28 +37,35 @@
 		</p>
 		<br>
 		<form>
-			<input type="radio" name="biltyp" value="litenbil" checked> Liten bil (1-4 personer)<br>
-			<input type="radio" name="biltyp" value="storbil"> Stor bil (5-8 personer)<br>
+			<input type="radio" name="biltyp" id="liten" value="Liten bil" checked> Liten bil (1-4 personer)<br>
+			<input type="radio" name="biltyp" id="stor" value="Stor bil"> Stor bil (5-8 personer)<br>
 		</form>
-		<h6>Jag har ytterliggare behov</h6>
+		<h4>Jag behöver:</h4>
 		<form>
-			<input type="radio" name="behov" value="rullstol"> Rullstol<br>
-			<input type="radio" name="behov" value="barnstol"> Barnstol<br>
+			<input type="checkbox" name="behov" value="rullstol"> Rullstol<br>
+			<input type="checkbox" name="behov" value="barnstol"> Barnstol<br>
 		</form>
 	<br>
-	<label for="betalning">Betalningsalternativ</label><br>
-		<select id="betalning" name="bet">
-			<option>Kredit kort</option>
-			<option>Kontant</option>
-			<option>Swish</option>
-		</select>
+	</div>
+	<div id="bookinfo">
 	<br>
+	<h4 id="bookingid"><h4>{{ orderId }}
 	<br>
-    <button v-on:click="orderTaxi">BOKA TAXI <img src="https://www.iconexperience.com/_img/o_collection_png/green_dark_grey/256x256/plain/car_convertible2.png" width="20" height="20"></button>
-    Ditt bokningsnummer är {{ orderId }}
+	<ul id="bookinfolist">
+	</ul>
+	</div>
+	</div>
+	<br>
+	<div id="buttonpos">
+	<button v-on:click="orderTaxi">BOKA TAXI</button>
+	</div>
 	<br>
 	<br>
 	</section>
   </div>
+  <footer>
+	<hr>
+	<p> Copyright Lådbil AB</p>
+  </footer>
 </body>
 </html>
