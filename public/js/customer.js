@@ -89,8 +89,28 @@ var vm = new Vue({
     orderTaxi: function() {
             socket.emit("orderTaxi", { fromLatLong: [this.fromMarker.getLatLng().lat, this.fromMarker.getLatLng().lng],
                                        destLatLong: [this.destMarker.getLatLng().lat, this.destMarker.getLatLng().lng],
-                                       orderItems: { passengers: 1, bags: 1, animals: "doge" }
+                                       orderItems: { passengers: document.getElementById('Namn').value, telephone: document.getElementById('Telefonnummer').value , carsize: document.querySelector('input[name="biltyp"]:checked').value }
                                      });
+    var myHeader = document.getElementById("bookingid");
+	  var headtext = document.createTextNode("Ditt bokningsnummer är: ");
+	  myHeader.appendChild(headtext);
+	  var myElement = document.getElementById("bookinfolist");
+	  var list1 = document.createElement('li');
+	  var namn = document.createTextNode('Namn: ' + document.getElementById('Namn').value);
+	  list1.appendChild(namn);
+	  var brline = document.createElement("br");
+	  list1.appendChild(brline);
+	  var list2 = document.createElement('li');
+	  var telefon = document.createTextNode('Telefonnummer: ' + document.getElementById('Telefonnummer').value);
+	  list2.appendChild(telefon);
+	  var brline = document.createElement("br");
+	  list2.appendChild(brline);
+	  var list3 = document.createElement('li');
+	  var bil = document.createTextNode('' + document.querySelector('input[name="biltyp"]:checked').value);
+	  list3.appendChild(bil);
+	  myElement.appendChild(list1);
+	  myElement.appendChild(list2);
+	  myElement.appendChild(list3);
     },
     handleClick: function (event) {
       // first click sets destination
