@@ -63,8 +63,8 @@ var vm = new Vue({
     }).addTo(this.map);
     this.map.on('click', this.handleClick);
 
-    var searchDestControl = L.esri.Geocoding.geosearch({allowMultipleResults: false, zoomToResult: false, placeholder: "Destination"}).addTo(this.map);
-    var searchFromControl = L.esri.Geocoding.geosearch({allowMultipleResults: false, zoomToResult: false, placeholder: "From"});
+    var searchFromControl = L.esri.Geocoding.geosearch({allowMultipleResults: false, zoomToResult: false, placeholder: "Jag vill resa ifrån...", expanded: true}).addTo(this.map);
+    var searchDestControl = L.esri.Geocoding.geosearch({allowMultipleResults: false, zoomToResult: false, placeholder: "Jag vill resa till...", expanded: true}).addTo(this.map);
     // listen for the results event and add the result to the map
     searchDestControl.on("results", function(data) {
         this.destMarker = L.marker(data.latlng, {draggable: true}).addTo(this.map);
@@ -91,7 +91,8 @@ var vm = new Vue({
                                        destLatLong: [this.destMarker.getLatLng().lat, this.destMarker.getLatLng().lng],
                                        orderItems: { passengers: document.getElementById('Namn').value, telephone: document.getElementById('Telefonnummer').value , carsize: document.querySelector('input[name="biltyp"]:checked').value }
                                      });
-    var myHeader = document.getElementById("bookingid");
+          /*
+          var myHeader = document.getElementById("bookingid");
 	  var headtext = document.createTextNode("Ditt bokningsnummer är: ");
 	  myHeader.appendChild(headtext);
 	  var myElement = document.getElementById("bookinfolist");
@@ -111,19 +112,20 @@ var vm = new Vue({
 	  myElement.appendChild(list1);
 	  myElement.appendChild(list2);
 	  myElement.appendChild(list3);
+          */
     },
     handleClick: function (event) {
-      // first click sets destination
-      if (this.destMarker === null) {
-        this.destMarker = L.marker([event.latlng.lat, event.latlng.lng], {draggable: true}).addTo(this.map);
-        this.destMarker.on("drag", this.moveMarker);
-      }
-      // second click sets pickup location
-      else if (this.fromMarker === null) {
+      // first click -> location
+      if (this.fromMarker === null) {
         this.fromMarker = L.marker(event.latlng, {icon: this.fromIcon, draggable: true}).addTo(this.map);
         this.fromMarker.on("drag", this.moveMarker);
-        this.connectMarkers = L.polyline([this.fromMarker.getLatLng(), this.destMarker.getLatLng()], {color: 'blue'}).addTo(this.map);
       }
+      // second click -> destination
+      else if (this.destMarker === null) {
+        this.destMarker = L.marker([event.latlng.lat, event.latlng.lng], {draggable: true}).addTo(this.map);
+        this.destMarker.on("drag", this.moveMarker);
+        this.connectMarkers = L.polyline([this.fromMarker.getLatLng(), this.destMarker.getLatLng()], {color: 'blue'}).addTo(this.map);
+      }	
     },
     moveMarker: function (event) {
       this.connectMarkers.setLatLngs([this.fromMarker.getLatLng(), this.destMarker.getLatLng()], {color: 'blue'});
