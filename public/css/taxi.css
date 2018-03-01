@@ -20,7 +20,7 @@
 
 body {
 	margin: 0;
-	padding: 0;
+	padding: 0 400px;
 	width: 80%;
 	height: 80%;
 
@@ -32,7 +32,7 @@ body {
 
 #my-map {
 	width: 90%;
-	height: 50vh;
+	height: 20vh;
 	border: 1px solid rgba(0,0,0,0.4);
 	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 	margin: 1em auto;
@@ -44,9 +44,12 @@ body {
 
 
 #page {
-	margin: 20px;
+	padding: 5px;
+	margin: 5px;
+	height: 630px;
 	overflow:hidden;
-	background-color: #FFF8DC;
+	background-color: #8FBC8F;
+	/* background-color: #FFF8DC; */
 	border: 2px ridge #DCDCDC;
 }
 
@@ -79,8 +82,8 @@ button:hover {
 
 
 section {
-	margin: 10px;
-	padding: 0 20px; 
+	margin: 5px;
+	padding: 0 10px; 
 	overflow:hidden;
 	border: 2px ridge #DCDCDC;
 	background-color: #F0FFFF;
@@ -89,7 +92,7 @@ section {
 .wrapper {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 400px 400px 400px;     
+    grid-template-columns: 220px 10px 10px;     
 	/* background-color: #000000; */
     color: #444;
 	/* text-align: center; */
@@ -99,7 +102,7 @@ section {
     background-color: #fff;
     color: #fff;
     border-radius: 5px;
-    padding: 20px;
+    padding: 10px;
     font-size: 150%;
 
 }
@@ -117,4 +120,12 @@ section {
 
 #buttonpos {
 	padding: 0 40px;
+}
+
+#bookingpage {
+	padding: 5px;
+	margin: 5px;
+	height: 650px;
+	background-color: #FFF8DC;
+	border: 2px ridge #DCDCDC;
 }
